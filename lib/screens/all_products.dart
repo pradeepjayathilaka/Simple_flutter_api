@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_flutter_api/api/api_service.dart';
 import 'package:simple_flutter_api/models/product_model.dart';
+import 'package:simple_flutter_api/screens/single_product.dart';
 
 class AllProducts extends StatefulWidget {
   const AllProducts({super.key});
@@ -55,6 +56,15 @@ class _AllProductsState extends State<AllProducts> {
                         height: 100,
                         fit: BoxFit.cover,
                       ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SingleProduct(productId: product.id!),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
