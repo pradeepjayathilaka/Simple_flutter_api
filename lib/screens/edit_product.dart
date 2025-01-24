@@ -119,7 +119,7 @@ class _EditProductState extends State<EditProduct> {
               ),
               const SizedBox(height: 32),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     Product updatedProduct = Product(
@@ -130,7 +130,7 @@ class _EditProductState extends State<EditProduct> {
                       category: category,
                     );
                     try {
-                      apiService.updatedProduct(
+                      await apiService.updatedProduct(
                           widget.product.id!, updatedProduct);
                       Navigator.pop(context);
                     } catch (error) {
